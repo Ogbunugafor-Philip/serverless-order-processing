@@ -7,9 +7,15 @@ module "cognito" {
 }
 
 module "apigateway" {
-  source  = "./modules/apigateway"
-  api_name = var.api_name
+  source                   = "./modules/apigateway"
+  api_name                 = var.api_name
+  region                   = var.aws_region
+  cognito_user_pool_id     = module.cognito.user_pool_id
+  cognito_app_client_id    = module.cognito.user_pool_client_id
+  order_handler_lambda_arn = module.lambda.lambda_invoke_arn
 }
+
+
 
 module "lambda" {
   source      = "./modules/lambda"

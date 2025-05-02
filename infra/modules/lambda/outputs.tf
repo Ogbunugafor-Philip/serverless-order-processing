@@ -8,5 +8,8 @@ output "lambda_function_arn" {
 
 output "lambda_exec_role_name" {
   value = aws_iam_role.lambda_exec.name
+}
 
+output "lambda_invoke_arn" {
+  value = aws_lambda_function.lambda_func.invoke_arn
 }
