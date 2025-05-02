@@ -21,3 +21,15 @@ variable "lambda_runtime" {
   type        = string
   default     = "nodejs18.x"
 }
+
+variable "user_pool_name" {
+  default = "serverless-order-processing-user-pool"
+}
+
+variable "user_pool_client_name" {
+  default = "serverless-order-app-client"
+}
+
+variable "callback_url" {
+  default = "https://example.com/callback"
+}
