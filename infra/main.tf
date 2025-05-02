@@ -21,4 +21,9 @@ module "sqs" {
   queue_name = var.queue_name
 }
 
+module "sns" {
+  source     = "./modules/sns"
+  topic_name = var.topic_name
+}
+
 

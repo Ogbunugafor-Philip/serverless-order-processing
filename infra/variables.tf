@@ -45,3 +45,7 @@ variable "lambda_name" {
 variable "queue_name" {
   default = "order-queue"
 }
+
+variable "topic_name" {
+  default = "order-notification-topic"
+}
