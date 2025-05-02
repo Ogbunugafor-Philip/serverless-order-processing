@@ -11,5 +11,9 @@ module "apigateway" {
   api_name = var.api_name
 }
 
+module "lambda" {
+  source      = "./modules/lambda"
+  lambda_name = var.lambda_name
+}
 
 

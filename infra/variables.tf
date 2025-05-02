@@ -37,3 +37,7 @@ variable "callback_url" {
 variable "api_name" {
   default = "serverless-order-api"
 }
+
+variable "lambda_name" {
+  default = "order-processing-handler"
+}
