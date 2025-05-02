@@ -53,3 +53,7 @@ variable "topic_name" {
 variable "table_name" {
   default = "orders"
 }
+
+variable "bucket_name" {
+  default = "serverless-order-frontend-bucket"
+}

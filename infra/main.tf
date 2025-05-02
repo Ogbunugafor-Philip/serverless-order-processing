@@ -45,4 +45,9 @@ module "cloudwatch" {
   retention_days = 14
 }
 
+module "s3_cloudfront" {
+  source      = "./modules/s3_cloudfront"
+  bucket_name = var.bucket_name
+}
+
 
