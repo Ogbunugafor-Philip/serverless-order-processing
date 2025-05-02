@@ -33,3 +33,7 @@ variable "user_pool_client_name" {
 variable "callback_url" {
   default = "https://example.com/callback"
 }
+
+variable "api_name" {
+  default = "serverless-order-api"
+}

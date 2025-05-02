@@ -6,4 +6,10 @@ module "cognito" {
   callback_url          = var.callback_url
 }
 
+module "apigateway" {
+  source  = "./modules/apigateway"
+  api_name = var.api_name
+}
+
+
 
