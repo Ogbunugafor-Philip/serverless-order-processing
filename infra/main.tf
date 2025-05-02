@@ -16,4 +16,9 @@ module "lambda" {
   lambda_name = var.lambda_name
 }
 
+module "sqs" {
+  source     = "./modules/sqs"
+  queue_name = var.queue_name
+}
+
 

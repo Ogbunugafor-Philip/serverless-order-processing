@@ -41,3 +41,7 @@ variable "api_name" {
 variable "lambda_name" {
   default = "order-processing-handler"
 }
+
+variable "queue_name" {
+  default = "order-queue"
+}
