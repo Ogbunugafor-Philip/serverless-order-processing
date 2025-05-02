@@ -49,3 +49,7 @@ variable "queue_name" {
 variable "topic_name" {
   default = "order-notification-topic"
 }
+
+variable "table_name" {
+  default = "orders"
+}

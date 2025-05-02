@@ -26,4 +26,9 @@ module "sns" {
   topic_name = var.topic_name
 }
 
+module "dynamodb" {
+  source     = "./modules/dynamodb"
+  table_name = var.table_name
+}
+
 
