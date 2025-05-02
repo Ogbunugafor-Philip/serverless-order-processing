@@ -31,4 +31,12 @@ module "dynamodb" {
   table_name = var.table_name
 }
 
+module "iam" {
+  source                 = "./modules/iam"
+  dynamodb_table_arn     = module.dynamodb.orders_table_arn
+  sqs_queue_arn          = module.sqs.main_queue_arn
+  sns_topic_arn          = module.sns.topic_arn
+  lambda_exec_role_name  = module.lambda.lambda_exec_role_name
+}
+
 
