@@ -39,4 +39,10 @@ module "iam" {
   lambda_exec_role_name  = module.lambda.lambda_exec_role_name
 }
 
+module "cloudwatch" {
+  source         = "./modules/cloudwatch"
+  lambda_name    = var.lambda_name
+  retention_days = 14
+}
+
 
