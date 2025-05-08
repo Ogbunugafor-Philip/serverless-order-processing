@@ -6,11 +6,10 @@ resource "aws_apigatewayv2_api" "rest_api" {
 
 # Lambda Integration (orderHandler)
 resource "aws_apigatewayv2_integration" "order_handler" {
-  api_id                = aws_apigatewayv2_api.rest_api.id
-  integration_type      = "AWS_PROXY"
-  integration_uri = var.order_handler_lambda_arn
-
-  integration_method    = "POST"
+  api_id                 = aws_apigatewayv2_api.rest_api.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = var.order_handler_lambda_arn
+  integration_method     = "POST"
   payload_format_version = "2.0"
 }
 
@@ -35,3 +34,6 @@ resource "aws_apigatewayv2_route" "order_route" {
   authorizer_id      = aws_apigatewayv2_authorizer.jwt_auth.id
   authorization_type = "JWT"
 }
+
+# ✅ API Gateway Stage - REQUIRED to expose the
+
