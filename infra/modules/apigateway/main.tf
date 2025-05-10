@@ -1,7 +1,13 @@
-# Create the API Gateway (HTTP API)
+# Create the API Gateway (HTTP API) with CORS Configuration
 resource "aws_apigatewayv2_api" "rest_api" {
   name          = var.api_name
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_origins = ["*"]
+    allow_methods = ["POST", "OPTIONS"]
+    allow_headers = ["*"]
+  }
 }
 
 # Lambda Integration (orderHandler)
@@ -35,5 +41,14 @@ resource "aws_apigatewayv2_route" "order_route" {
   authorization_type = "JWT"
 }
 
-# ✅ API Gateway Stage - REQUIRED to expose the
+# API Gateway Stage (required to expose API)
+resource "aws_apigatewayv2_stage" "api_stage" {
+  api_id      = aws_apigatewayv2_api.rest_api.id
+  name        = "$default"
+  auto_deploy = true
 
+  default_route_settings {
+    throttling_burst_limit = 5000
+    throttling_rate_limit  = 10000
+  }
+}
